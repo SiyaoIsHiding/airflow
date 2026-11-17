@@ -3,7 +3,7 @@
 # Runs Apache Airflow's own "Integration: providers cassandra" CI job, through Breeze, against the
 # Apache Cassandra Python Driver 3.31.0 release candidate, with the driver Airflow pins as baseline.
 #
-# Steps marked COPIED are taken from apache/airflow at commit 715043b898089c40053108246a0e549f9c16c982:
+# Steps marked COPIED are taken from apache/airflow at commit 41619107e376d9307b84f4dd9400ff101cd0702b:
 #   [1] .github/workflows/integration-system-tests.yml   job "tests-providers-integration"
 #   [2] .github/actions/prepare_breeze_and_image/action.yml
 #   [3] .github/workflows/ci-image-build.yml              job "build-ci-images"
@@ -52,11 +52,11 @@ jobs:
         shell: bash
         run: sudo rm -rf ${GITHUB_WORKSPACE}/*
       # COPIED [1]; CHANGED to check out apache/airflow at a pinned commit instead of this repository.
-      - name: "Checkout apache/airflow 715043b898089c40053108246a0e549f9c16c982"
+      - name: "Checkout apache/airflow 41619107e376d9307b84f4dd9400ff101cd0702b"
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
           repository: apache/airflow
-          ref: 715043b898089c40053108246a0e549f9c16c982
+          ref: 41619107e376d9307b84f4dd9400ff101cd0702b
           persist-credentials: false
       # COPIED [2]
       - name: "Make /mnt writeable and cleanup"
